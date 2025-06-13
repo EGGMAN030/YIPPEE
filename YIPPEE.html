@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP 彩帶特效頁面 (HTML 版本)</title> 
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; 
+            font-family: Arial, sans-serif;
+            overflow: hidden; 
+        }
+        .confetti-button {
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #ff69b4; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .confetti-button:hover {
+            background-color: #ff1493; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <button class="confetti-button" id="celebrateButton">特殊功能！</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        const button = document.getElementById('celebrateButton');
+
+        button.addEventListener('click', function() {
+            confetti({
+                particleCount: 100, 
+                spread: 120,       
+                origin: { y: 0.6 } 
+            });
+             setTimeout(function() {
+                 confetti({
+                     particleCount: 80,
+                     spread: 100,
+                     origin: { y: 0 } 
+                 });
+             }, 200);
+             setTimeout(function() {
+                 confetti({
+                     particleCount: 50,
+                     spread: 90,
+                     origin: { x: 0.2, y: 0 } 
+                 });
+             }, 300);
+             setTimeout(function() {
+                 confetti({
+                     particleCount: 50,
+                     spread: 90,
+                     origin: { x: 0.8, y: 0 } 
+                 });
+             }, 400);
+        });
+    </script>
+
+</body>
+</html>
